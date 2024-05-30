@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #008080; /* اللون الجنزاري */
+            color: #333;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 1.2px;
+            padding-top: 70px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        .navbar-custom {
+            background-color: #343a40;
+        }
+        .navbar-custom .navbar-brand {
+            color: #fff;
+        }
+        h1 {
+            color: #343a40;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .result-message {
+            font-size: 1.5rem;
+            margin: 0;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .positive {
+            background-color: #e8f5e9;
+            color: #4caf50;
+        }
+        .negative {
+            background-color: #ffebee;
+            color: #f44336;
+        }
+        .error {
+            background-color: #fff3e0;
+            color: #ff9800;
+        }
+        .btn-primary {
+            background-color: #4a77d4;
+            background-image: linear-gradient(to bottom, #6eb6de, #4a77d4);
+            border: 1px solid #3762bc;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #5a8bd4;
+        }
+        footer {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
+        <a class="navbar-brand" href="#"><b>IMDB Sentiment Analysis</b></a>
+    </nav>
+    <div class="container">
+        <h1>Sentiment Analysis Result</h1>
+        <p class="result-message {% if prediction == 1 %}positive{% elif prediction == 0 %}negative{% else %}error{% endif %}">
+            {% if prediction == 1 %}
+                Positive
+            {% elif prediction == 0 %}
+                Negative
+            {% else %}
+                Error in prediction
+            {% endif %}
+        </p>
+        <a href="/" class="btn btn-primary btn-block">Back to Enter Another Review</a>
+    </div>
+    <footer>
+        &copy; 2024 Sentiment Analysis App
+    </footer>
+</body>
+</html>
